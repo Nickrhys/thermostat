@@ -56,6 +56,23 @@ describe("Thermostat", function() {
           thermostat.resetTemp();
           expect(thermostat.temperature).toEqual(20);
         });
+
+        describe("energy display change", function() {
+
+          it("should show efficient when temperature is below 18", function(){
+            thermostat.temperature = 17;
+            expect(thermostat.energyDisplay()).toEqual('efficient');
+          });
+
+          it("should show average when temperature is between 19 and 25", function(){
+            thermostat.temperature = 23;
+            expect(thermostat.energyDisplay()).toEqual('average');
+          });
+          it("should show poor when temperature is over 25", function(){
+            thermostat.temperature = 28;
+            expect(thermostat.energyDisplay()).toEqual('poor');
+          });
+        });
       });
     });
   });
