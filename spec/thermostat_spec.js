@@ -50,6 +50,12 @@ describe("Thermostat", function() {
           thermostat.increase();
           expect(thermostat.temperature).toEqual(32);
         });
+
+        it("should have a reset button with a temperature of 20", function(){
+          thermostat.temperature = 25;
+          thermostat.resetTemp();
+          expect(thermostat.temperature).toEqual(20);
+        });
       });
     });
   });
